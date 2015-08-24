@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title></title>
+  <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="js/underscore.js"></script>
+  <script type="text/javascript" src="js/backbone.js"></script>
+  <script type="text/javascript" src="js/handlebars-v2.0.0.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+  .line-through{
+    text-decoration: line-through;
+  }
+  #main{
+    margin-top: 50px;
+  }
+  li.list-group-item:hover{
+    background-color: #eee;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+  </div>
+
+  <script type="text/x-handlebars-template" id="todo-list-template">
+    <header>
+      <h1>Todos</h1>
+      <input id="new-todo" type="text" placeholder="enter to add" class="form-control">
+    </header>
+
+    <section id="main">
+      <ul id="todo-list" class="list-group"></ul>
+    </section>
+  </script>
+
+  <script type="text/x-handlebars-template" id="todo-item-template">
+    <div class="view">
+      <input class="toggle" type="checkbox" {{#if done}}checked="checked"{{/if}} />
+      <label class="{{#if done}}line-through text-muted{{/if}}">{{title}}</label>
+      <span class="glyphicon glyphicon-remove pull-right destroy"></span>
+    </div>
+  </script>
+
+  <script type="text/javascript" src="./todo.js"></script>
+</body>

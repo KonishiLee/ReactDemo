@@ -1,0 +1,122 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="description" content="乐享云办公, OA, CRM, LoyoCloud">
+  <title>App下载</title>
+  <script>
+    // 获取终端的相关信息
+    var Terminal = {
+        // 辨别移动终端类型
+        platform : function(){
+          var u = navigator.userAgent, app = navigator.appVersion;
+          return {
+              // android终端或者uc浏览器
+              android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+              // 是否为iPhone或者QQHD浏览器
+              iPhone: u.indexOf('iPhone') > -1
+          };
+        }(),
+        // 辨别移动终端的语言：zh-cn、en-us、ko-kr、ja-jp...
+        language : (navigator.browserLanguage || navigator.language).toLowerCase()
+    }
+  </script>
+  <style>
+    body{
+      background-color: #f4f4f4;
+      margin: 0;
+      font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    }
+    .container{
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    header{
+      background: url(./images/appdownload_header_bg.png) no-repeat bottom center/cover;
+      width: 100%;
+      height: 30%;
+      padding-top: 2em;
+    }
+    header h1{
+      background: url(./images/appdownload_logo.png) no-repeat bottom center/contain;
+      font-size: 0px;
+      margin: 0 auto 3% auto;
+      width: 50%;
+      height: 53%;
+    }
+    .version{
+      color: #fff;
+      font-size: 12px;
+      font-weight: 300;
+    }
+    .hide{
+      display: none;
+    }
+    .download{
+      margin: 15px auto;
+    }
+    .download a{
+      display: none;
+      width:141px;
+      height:51px;
+      background-color: #42a9f6;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      line-height: 51px;
+      padding-left:40px;
+      border-radius: 8px;
+    }
+    .ios{
+      display: inline-block!important;
+      background: url(./images/appdownload_ios_icon.png) no-repeat 15% 45%/14% 56%;
+    }
+    .andriod{
+      display: inline-block!important;
+      background: url(./images/appdownload_android_icon.png) no-repeat 15% 45%/14% 56%;
+    }
+    .describe{
+      width:80%;
+      margin:20px;
+    }
+    .content-img{
+      width: 40%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>乐享云办公</h1>
+      <div class="version">
+        <span id="version-andriod" class="hide">V3.1.1 4.40M<br>更新于 2015.7.6</span>
+        <span id="version-ios" class="hide">V3.2.2 10.70M<br>更新于 2015.7.6</span>
+      </div>
+    </header>
+
+    <div class='content'>
+      <img src="./images/appdownload_describe.png" class="describe">
+      <img src="./images/appdownload_tu.png" class="content-img">
+      <div class="download">
+        <a id="ios" href="itms-services://?action=download-manifest&url=https://copy.com/olHHBmkyjZlPsPGk" class="">iPhone 下载</a>
+        <a id="andriod" href="http://361loyofiles.oss-cn-qingdao.aliyuncs.com/LeShare.apk" class="">Andriod 下载</a>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  // 根据不同的终端，跳转到不同的地址
+  if(Terminal.platform.android){
+    document.getElementById('version-andriod').className = '';
+    document.getElementById('andriod').className = 'andriod';
+  }else if(Terminal.platform.iPhone){
+    document.getElementById('version-ios').className = '';
+    document.getElementById('ios').className = 'ios';
+  }
+</script>
+</html>
